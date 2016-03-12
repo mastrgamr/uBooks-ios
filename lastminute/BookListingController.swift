@@ -6,6 +6,7 @@
 //  Copyright © 2016 lastminute. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Alamofire
 
@@ -17,13 +18,21 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UInt64(NSDate().timeIntervalSince1970))
         
-        Alamofire.request(.GET, "http://52.20.241.139/api/v1.0/productsforsale", parameters: nil)
+        let parameters = [
+            "date": "1457660629",
+            "keyword": "BEFORE"
+        ]
+        //let encoding = Alamofire.ParameterEncoding.JSON
+        
+        
+        Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/productsforsale", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
+                //print(response.request)  // original URL request
+                print("RESPONSE CODE: \(response.response)") // URL response
+                //print(response.data)     // server data
+                //print(response.result)   // result of response serialization
                 
                 if let JSON = response.result.value {
                     //print("JSON: \(JSON)")
@@ -54,6 +63,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         if (self.pfs.count != 0) {
             return self.pfs.count
         } else {
@@ -63,10 +73,13 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
+        //releases resources the TableCell contains for reuse. Reduces performance/memory impact of scrolling
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BookItemCell", forIndexPath: indexPath) as UICollectionViewCell
         
         //Set up title of book/item in listing
         if self.pfs.count != 0 {
+            
+            //Set up Title/Product name
             if let ct = cell.viewWithTag(1) as! UILabel? {
                 var name: String! = ""
                 

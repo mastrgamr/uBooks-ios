@@ -8,8 +8,12 @@
 
 import UIKit
 
-class RegistrationViewController : UIViewController {
+class RegistrationViewController : UIViewController, UITableViewDelegate {
     
+    @IBOutlet weak var name: UITextField!
+    
+    @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var email: UITextField!
     
     override func viewDidLoad() {
         //Some Code ...
