@@ -18,7 +18,10 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UInt64(NSDate().timeIntervalSince1970))
+        
+        self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "TEST!", style: UIBarButtonItemStyle(rawValue: 0)!, target: nil, action: nil)
+        
+        print(UInt64(NSDate().timeIntervalSince1970)) //gets epoch of current time
         
         let parameters = [
             "date": "1457660629",
