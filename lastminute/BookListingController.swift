@@ -16,6 +16,10 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     
     var pfs: [ProductForSale] = []
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -115,5 +119,15 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+//referenced via - http://stackoverflow.com/questions/19108513/uistatusbarstyle-preferredstatusbarstyle-does-not-work-on-ios-7
+extension UINavigationController {
+    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        if let rootViewController = self.viewControllers.first {
+            return rootViewController.preferredStatusBarStyle() //returns the statusbar color specified in the ViewController
+        }
+        return self.preferredStatusBarStyle()
     }
 }
