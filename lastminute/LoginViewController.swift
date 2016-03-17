@@ -21,26 +21,29 @@ class LoginViewController : UIViewController {
         
     }
     
-    @IBAction func signInPressed(sender: AnyObject) {
+    
+    @IBAction func beginSignIn(sender: AnyObject) {
+        print("Authorizing")
+        
         //authorize
         let email = userTextEmail.text!
         let password = userTextPassword.text!
         let param = ["email": email, "password": password]
         
         
-                Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/request_login", parameters: param, encoding: .JSON)
-                    .responseJSON { response in
-                        print(response.request)  // original URL request
-                        print(response.response) // URL response
-                        print(response.data)     // server data
-                        print(response.result)   // result of response serialization
-         
-                        if let JSON = response.result.value {
-                            print("JSON: \(JSON)")
-                        }
-                        
-                        print(email, password)
+        Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/request_login", parameters: param, encoding: .JSON)
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
                 }
+                
+                print(email, password)
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

@@ -18,8 +18,8 @@ class RegistrationViewController : UIViewController, UIPickerViewDelegate {
     var schoolNames = ["Hunter College", "College of Staten Island", "Brooklyn College"]
     
     @IBAction func clicks(sender: AnyObject) {
-        let datav: DataViewController = DataViewController()
-        self.presentViewController(datav, animated: true, completion: nil)
+        //let datav: DataViewController = DataViewController()
+        //self.presentViewController(datav, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
