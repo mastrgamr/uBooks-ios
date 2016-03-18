@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationViewController : UIViewController, UIPickerViewDelegate {
+class RegistrationViewController : UIViewController, UIPickerViewDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var picker: UIPickerView!
