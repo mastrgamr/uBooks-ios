@@ -21,6 +21,9 @@ class LoginViewController : UIViewController {
         
     }
     
+    @IBAction func undoSeg(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func beginSignIn(sender: AnyObject) {
         print("Authorizing")
@@ -40,6 +43,9 @@ class LoginViewController : UIViewController {
                 
                 if let JSON = response.result.value {
                     print("JSON: \(JSON)")
+                    if "\(JSON["status"]!!)" == "Failure" { //return if message failure. this prevents app crash
+                        return;
+                    }
                     
                     let userDB: UserDBManager = UserDBManager()
                     userDB.create()

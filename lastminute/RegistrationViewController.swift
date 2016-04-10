@@ -17,6 +17,9 @@ class RegistrationViewController : UIViewController, UIPickerViewDelegate, UIScr
     
     var schoolNames = ["Hunter College", "College of Staten Island", "Brooklyn College"]
     
+    @IBAction func undoSeg(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBAction func clicks(sender: AnyObject) {
         //let datav: DataViewController = DataViewController()
         //self.presentViewController(datav, animated: true, completion: nil)
@@ -25,6 +28,7 @@ class RegistrationViewController : UIViewController, UIPickerViewDelegate, UIScr
     override func viewDidLoad() {
         super.viewDidLoad()
         //Some Code ...
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     override func didReceiveMemoryWarning() {

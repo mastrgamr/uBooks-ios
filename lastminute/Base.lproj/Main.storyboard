@@ -186,9 +186,7 @@
                                 <rect key="frame" x="159" y="325" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="LgL-Tp-r2S" kind="popoverPresentation" popoverAnchorView="RJr-Vo-SqG" id="raf-nc-UJ6">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="LgL-Tp-r2S" kind="presentation" id="ALd-pa-oC2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -209,12 +207,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="8Tv-ww-GvS" kind="relationship" relationship="rootViewController" id="Pye-Ud-6zF"/>
+                        <segue destination="Gp8-Yz-sya" kind="relationship" relationship="rootViewController" id="kAp-3p-FsS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4L-J6-KHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238" y="1296"/>
+            <point key="canvasLocation" x="977.5" y="-305.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="UbN-po-HJl">
@@ -244,6 +242,9 @@
                                 <state key="normal" title="Need an Account?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8Tv-ww-GvS" kind="show" id="e1l-el-4cV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHK-GW-Aq9">
                                 <rect key="frame" x="127" y="387" width="120" height="30"/>
@@ -255,9 +256,19 @@
                                     <action selector="beginSignIn:" destination="Gp8-Yz-sya" eventType="touchUpInside" id="4Bz-LM-KLN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyy-Lj-0PA">
+                                <rect key="frame" x="309" y="72" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="undoSeg:" destination="8Tv-ww-GvS" eventType="touchUpInside" id="Apf-vQ-SMt"/>
+                                    <action selector="undoSeg:" destination="Gp8-Yz-sya" eventType="touchUpInside" id="Qsb-a8-v2d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tfO-kH-4IC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="userTextEmail" destination="yIx-NC-KLy" id="OgK-o8-b1l"/>
@@ -266,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Yd-P4-fw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1375.5" y="488.5"/>
+            <point key="canvasLocation" x="1443.5" y="-305.5"/>
         </scene>
         <!--Registration-->
         <scene sceneID="gyk-2R-QcI">
@@ -311,17 +322,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnu-3p-5cV">
-                                                <rect key="frame" x="134" y="505" width="107" height="30"/>
-                                                <color key="backgroundColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Create Account">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="clicks:" destination="8Tv-ww-GvS" eventType="touchUpInside" id="IeO-m0-xW5"/>
-                                                    <segue destination="Gp8-Yz-sya" kind="show" id="EGx-Cp-JK8"/>
-                                                </connections>
-                                            </button>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTs-qK-fa4">
                                                 <rect key="frame" x="27" y="53" width="320" height="216"/>
                                                 <connections>
@@ -338,6 +338,27 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDx-x2-qf6">
+                                                <rect key="frame" x="321" y="8" width="46" height="30"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <state key="normal" title="X"/>
+                                                <connections>
+                                                    <action selector="undoSeg:" destination="8Tv-ww-GvS" eventType="touchUpInside" id="bJd-ZP-4f1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnu-3p-5cV">
+                                                <rect key="frame" x="120" y="505" width="135" height="30"/>
+                                                <color key="backgroundColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="135" id="tFT-11-3p5"/>
+                                                </constraints>
+                                                <state key="normal" title="Create Account">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clicks:" destination="8Tv-ww-GvS" eventType="touchUpInside" id="IeO-m0-xW5"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -353,6 +374,7 @@
                                             <constraint firstItem="IrY-oI-nJd" firstAttribute="leading" secondItem="iMg-uk-GBD" secondAttribute="leading" constant="88" id="F7I-kd-RtG"/>
                                             <constraint firstAttribute="trailing" secondItem="sP2-Si-ned" secondAttribute="trailing" constant="87" id="Gm9-Le-NIF"/>
                                             <constraint firstItem="j0O-zB-y6w" firstAttribute="top" secondItem="IrY-oI-nJd" secondAttribute="bottom" constant="8" id="HLI-tC-9Nk"/>
+                                            <constraint firstAttribute="bottom" secondItem="gnu-3p-5cV" secondAttribute="bottom" constant="68" id="HkR-oD-Z6y"/>
                                             <constraint firstItem="kZP-MJ-k0f" firstAttribute="leading" secondItem="iMg-uk-GBD" secondAttribute="leading" constant="100" id="OS7-ZA-3hS"/>
                                             <constraint firstItem="F7f-lc-htM" firstAttribute="leading" secondItem="iMg-uk-GBD" secondAttribute="leading" constant="88" id="PeX-rQ-OeE"/>
                                             <constraint firstAttribute="trailing" secondItem="oTs-qK-fa4" secondAttribute="trailing" constant="28" id="QuR-WC-Oqr"/>
@@ -397,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tuj-JQ-ABC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911.5" y="488.5"/>
+            <point key="canvasLocation" x="1881.5" y="-305.5"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>

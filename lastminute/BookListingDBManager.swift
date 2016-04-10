@@ -52,6 +52,7 @@ class BookListingDBManager : NSObject {
         
         do {
             
+            // MARK - The next line is for our debugging purposes, will remove soon
             try db!.run(productsTbl!.drop(ifExists: true))
             // DROP TABLE IF EXISTS "products"
             

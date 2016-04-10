@@ -25,6 +25,8 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         
         self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "TEST!", style: UIBarButtonItemStyle(rawValue: 0)!, target: nil, action: nil)
         
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         print(String(UInt64(NSDate().timeIntervalSince1970))) //gets epoch of current time
         let epoch: String! = String(UInt64(NSDate().timeIntervalSince1970))
         let parameters = [
