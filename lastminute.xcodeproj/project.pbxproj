@@ -16,7 +16,9 @@
 		A1ACE4C51C86761C00A951C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C31C86761C00A951C7 /* Main.storyboard */; settings = {ASSET_TAGS = (1, ); }; };
 		A1ACE4C71C86761C00A951C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C61C86761C00A951C7 /* Assets.xcassets */; };
 		A1ACE4CA1C86761C00A951C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C81C86761C00A951C7 /* LaunchScreen.storyboard */; };
-		D7A0B8721C9B6322001CAF23 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A0B8711C9B6322001CAF23 /* LoginViewController.swift */; };
+		A1FCE7681CB9B38F008D3855 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7671CB9B38F008D3855 /* DBManager.swift */; };
+		A1FCE76A1CB9C5FD008D3855 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7691CB9C5FD008D3855 /* User.swift */; };
+		A1FED2231C9B695B0072712E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FED2221C9B695B0072712E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,9 @@
 		A1ACE4C61C86761C00A951C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1ACE4C91C86761C00A951C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1ACE4CB1C86761C00A951C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1FCE7641CB9B2D9008D3855 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		A1FCE7671CB9B38F008D3855 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		A1FCE7691CB9C5FD008D3855 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A1FED2221C9B695B0072712E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB224C9D36595AEA24DF05F8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D7A0B8711C9B6322001CAF23 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../../LoginViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 		2DDE0364B76C22523D567CDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1FCE7641CB9B2D9008D3855 /* libsqlite3.tbd */,
 				A194ABEB1C93D15400F01C90 /* Former.framework */,
 				A122F3AF1C894BA4005F5BEA /* Alamofire.framework */,
 				43227E83D2DAFBE109E9EA28 /* Pods.framework */,
@@ -75,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				A1852ADB1C8BEBE4000AFF9F /* ProductForSale.swift */,
+				A1FCE7691CB9C5FD008D3855 /* User.swift */,
 			);
 			name = EndpointModels;
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 		A1ACE4BA1C86761C00A951C7 /* lastminute */ = {
 			isa = PBXGroup;
 			children = (
+				A1FCE7661CB9B343008D3855 /* ClientDatabase */,
 				A1852ADA1C8BEB97000AFF9F /* EndpointModels */,
 				A15C07911C89471700C1312E /* ViewControllers */,
 				A1ACE4BB1C86761C00A951C7 /* AppDelegate.swift */,
@@ -110,6 +118,14 @@
 				A1ACE4CB1C86761C00A951C7 /* Info.plist */,
 			);
 			path = lastminute;
+			sourceTree = "<group>";
+		};
+		A1FCE7661CB9B343008D3855 /* ClientDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				A1FCE7671CB9B38F008D3855 /* DBManager.swift */,
+			);
+			name = ClientDatabase;
 			sourceTree = "<group>";
 		};
 		F087350BD116D1FD1B73A87E /* Pods */ = {
@@ -250,8 +266,10 @@
 				A1852ADC1C8BEBE4000AFF9F /* ProductForSale.swift in Sources */,
 				A15C07901C89468000C1312E /* RegistrationViewController.swift in Sources */,
 				A15C078E1C89243500C1312E /* BookListingController.swift in Sources */,
+				A1FCE76A1CB9C5FD008D3855 /* User.swift in Sources */,
 				A1ACE4C01C86761C00A951C7 /* DataViewController.swift in Sources */,
 				A1ACE4BC1C86761C00A951C7 /* AppDelegate.swift in Sources */,
+				A1FCE7681CB9B38F008D3855 /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +388,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = lastminute/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lastminute.lastminute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -387,6 +406,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = lastminute/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lastminute.lastminute;
 				PRODUCT_NAME = "$(TARGET_NAME)";

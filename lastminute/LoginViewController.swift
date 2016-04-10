@@ -40,9 +40,14 @@ class LoginViewController : UIViewController {
                 
                 if let JSON = response.result.value {
                     print("JSON: \(JSON)")
+                    
+                    let userDB: DBManager = DBManager(dbName: "user")
+                    userDB.create()
+                    userDB.update("\(JSON["userid"]!!)", _accessToken: "\(JSON["accesstoken"]!!)", _university: "\(JSON["university"]!!)", _college: "\(JSON["college"]!!)", _primaryColor: "\(JSON["primarycolor"]!!)", _secondaryColor: "\(JSON["secondarycolor"]!!)")
+                    print(userDB.getUser()!.university!)
                 }
                 
-                print(email, password)
+                //print(email, password)
         }
     }
     
