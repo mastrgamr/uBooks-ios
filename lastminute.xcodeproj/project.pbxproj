@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6333B40DB3DD14B8BBD8AB85 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43227E83D2DAFBE109E9EA28 /* Pods.framework */; };
+		A11B98611CBADAF20020E6F1 /* PostProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B98601CBADAF20020E6F1 /* PostProductViewController.swift */; };
+		A11B98631CBADF240020E6F1 /* ProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B98621CBADF240020E6F1 /* ProductInfoViewController.swift */; };
 		A15C078E1C89243500C1312E /* BookListingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C078D1C89243500C1312E /* BookListingController.swift */; };
 		A15C07901C89468000C1312E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C078F1C89468000C1312E /* RegistrationViewController.swift */; };
 		A1852ADC1C8BEBE4000AFF9F /* ProductForSale.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1852ADB1C8BEBE4000AFF9F /* ProductForSale.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		43227E83D2DAFBE109E9EA28 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11B98601CBADAF20020E6F1 /* PostProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostProductViewController.swift; sourceTree = "<group>"; };
+		A11B98621CBADF240020E6F1 /* ProductInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInfoViewController.swift; sourceTree = "<group>"; };
 		A122F3AF1C894BA4005F5BEA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		A15C078D1C89243500C1312E /* BookListingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListingController.swift; sourceTree = "<group>"; };
 		A15C078F1C89468000C1312E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 				A1FED2221C9B695B0072712E /* LoginViewController.swift */,
 				A15C078D1C89243500C1312E /* BookListingController.swift */,
 				A15C078F1C89468000C1312E /* RegistrationViewController.swift */,
+				A11B98601CBADAF20020E6F1 /* PostProductViewController.swift */,
+				A11B98621CBADF240020E6F1 /* ProductInfoViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 			files = (
 				A1FED2231C9B695B0072712E /* LoginViewController.swift in Sources */,
 				A1852ADC1C8BEBE4000AFF9F /* ProductForSale.swift in Sources */,
+				A11B98611CBADAF20020E6F1 /* PostProductViewController.swift in Sources */,
 				A15C07901C89468000C1312E /* RegistrationViewController.swift in Sources */,
 				A1FCE76E1CB9F33C008D3855 /* BookListingDBManager.swift in Sources */,
 				A15C078E1C89243500C1312E /* BookListingController.swift in Sources */,
@@ -273,6 +280,7 @@
 				A1ACE4C01C86761C00A951C7 /* DataViewController.swift in Sources */,
 				A1ACE4BC1C86761C00A951C7 /* AppDelegate.swift in Sources */,
 				A1FCE7681CB9B38F008D3855 /* UserDBManager.swift in Sources */,
+				A11B98631CBADF240020E6F1 /* ProductInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

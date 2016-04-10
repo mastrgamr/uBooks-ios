@@ -20,6 +20,11 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         return UIStatusBarStyle.LightContent
     }
     
+    @IBAction func postNewBook(sender: AnyObject) {
+        let ppvc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("postProductVC"))!
+        self.navigationController?.pushViewController(ppvc, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -117,6 +122,14 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         }
         
         return cell
+    }
+    
+    //Handle touch events on a cell
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print("tee hee ^_^")
+        //push a to ProductInfo
+        let pivc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("productInfoVC"))!
+        self.navigationController?.pushViewController(pivc, animated: true)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{

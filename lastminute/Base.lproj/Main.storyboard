@@ -95,7 +95,11 @@
                                 <rect key="frame" x="-4" y="623" width="383" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mBQ-aZ-rKX"/>
-                                    <barButtonItem systemItem="add" id="kgj-40-Zof"/>
+                                    <barButtonItem systemItem="add" id="kgj-40-Zof">
+                                        <connections>
+                                            <action selector="postNewBook:" destination="xD4-DI-ssN" id="qc1-hQ-jpA"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -128,6 +132,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHA-dV-fZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="16.5" y="488.5"/>
+        </scene>
+        <!--Post Product View Controller-->
+        <scene sceneID="rYt-gZ-aCk">
+            <objects>
+                <viewController storyboardIdentifier="postProductVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MlW-rW-03H" customClass="PostProductViewController" customModule="lastminute" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q8C-ZC-ygH"/>
+                        <viewControllerLayoutGuide type="bottom" id="wps-Zy-cNA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bYH-iK-J25">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPs-ZO-wNK">
+                                <rect key="frame" x="242" y="221" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Obs-Gi-EOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483.5" y="488.5"/>
+        </scene>
+        <!--Product Info View Controller-->
+        <scene sceneID="GfP-T9-E6p">
+            <objects>
+                <viewController storyboardIdentifier="productInfoVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PNe-kb-22V" customClass="ProductInfoViewController" customModule="lastminute" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MFT-OS-gSq"/>
+                        <viewControllerLayoutGuide type="bottom" id="kJr-21-6fD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AcA-X2-s4m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7He-bI-QVa">
+                                <rect key="frame" x="146" y="154" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="df8-qe-6uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="932.5" y="488.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YwE-Yb-L9i">
