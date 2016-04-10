@@ -16,8 +16,8 @@
 		A1ACE4C51C86761C00A951C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C31C86761C00A951C7 /* Main.storyboard */; settings = {ASSET_TAGS = (1, ); }; };
 		A1ACE4C71C86761C00A951C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C61C86761C00A951C7 /* Assets.xcassets */; };
 		A1ACE4CA1C86761C00A951C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C81C86761C00A951C7 /* LaunchScreen.storyboard */; };
-		A1FCE7651CB9B2D9008D3855 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FCE7641CB9B2D9008D3855 /* libsqlite3.tbd */; };
 		A1FCE7681CB9B38F008D3855 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7671CB9B38F008D3855 /* DBManager.swift */; };
+		A1FCE76A1CB9C5FD008D3855 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7691CB9C5FD008D3855 /* User.swift */; };
 		A1FED2231C9B695B0072712E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FED2221C9B695B0072712E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +37,7 @@
 		A1ACE4CB1C86761C00A951C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1FCE7641CB9B2D9008D3855 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A1FCE7671CB9B38F008D3855 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		A1FCE7691CB9C5FD008D3855 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A1FED2221C9B695B0072712E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB224C9D36595AEA24DF05F8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE37BEED2E67152EBB5C9B17 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1FCE7651CB9B2D9008D3855 /* libsqlite3.tbd in Frameworks */,
 				6333B40DB3DD14B8BBD8AB85 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				A1852ADB1C8BEBE4000AFF9F /* ProductForSale.swift */,
+				A1FCE7691CB9C5FD008D3855 /* User.swift */,
 			);
 			name = EndpointModels;
 			sourceTree = "<group>";
@@ -264,6 +265,7 @@
 				A1852ADC1C8BEBE4000AFF9F /* ProductForSale.swift in Sources */,
 				A15C07901C89468000C1312E /* RegistrationViewController.swift in Sources */,
 				A15C078E1C89243500C1312E /* BookListingController.swift in Sources */,
+				A1FCE76A1CB9C5FD008D3855 /* User.swift in Sources */,
 				A1ACE4C01C86761C00A951C7 /* DataViewController.swift in Sources */,
 				A1ACE4BC1C86761C00A951C7 /* AppDelegate.swift in Sources */,
 				A1FCE7681CB9B38F008D3855 /* DBManager.swift in Sources */,
@@ -385,6 +387,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = lastminute/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lastminute.lastminute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -402,6 +405,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = lastminute/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lastminute.lastminute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
