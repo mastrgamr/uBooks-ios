@@ -25,16 +25,16 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         
         self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "TEST!", style: UIBarButtonItemStyle(rawValue: 0)!, target: nil, action: nil)
         
-        print(UInt64(NSDate().timeIntervalSince1970)) //gets epoch of current time
-        
+        print(String(UInt64(NSDate().timeIntervalSince1970))) //gets epoch of current time
+        let epoch: String! = String(UInt64(NSDate().timeIntervalSince1970))
         let parameters = [
             "date": "1457660629",
             "keyword": "BEFORE"
         ]
         //let encoding = Alamofire.ParameterEncoding.JSON
+        print(parameters["date"])
         
-        
-        Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/productsforsale", parameters: parameters, encoding: .JSON)
+        Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/products_for_sale", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
                 //print(response.request)  // original URL request
                 print("RESPONSE CODE: \(response.response)") // URL response
@@ -45,6 +45,9 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
                     //print("JSON: \(JSON)")
                     
                     let products = JSON.valueForKey("products") as! NSArray
+                    
+                    let productDB: BookListingDBManager = BookListingDBManager()
+                    productDB.create()
                     
                     for item in products {
                         
@@ -63,6 +66,8 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
                                 productid: item.valueForKey("productid") as? String,
                                 secondarybarcode: item.valueForKey("secondarybarcode") as? String))
                     }
+                    
+                    productDB.update(self.pfs)
                     
                     self.cv.reloadData()
                 }

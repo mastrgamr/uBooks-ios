@@ -16,8 +16,9 @@
 		A1ACE4C51C86761C00A951C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C31C86761C00A951C7 /* Main.storyboard */; settings = {ASSET_TAGS = (1, ); }; };
 		A1ACE4C71C86761C00A951C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C61C86761C00A951C7 /* Assets.xcassets */; };
 		A1ACE4CA1C86761C00A951C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C81C86761C00A951C7 /* LaunchScreen.storyboard */; };
-		A1FCE7681CB9B38F008D3855 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7671CB9B38F008D3855 /* DBManager.swift */; };
+		A1FCE7681CB9B38F008D3855 /* UserDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7671CB9B38F008D3855 /* UserDBManager.swift */; };
 		A1FCE76A1CB9C5FD008D3855 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7691CB9C5FD008D3855 /* User.swift */; };
+		A1FCE76E1CB9F33C008D3855 /* BookListingDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE76D1CB9F33C008D3855 /* BookListingDBManager.swift */; };
 		A1FED2231C9B695B0072712E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FED2221C9B695B0072712E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,8 +37,9 @@
 		A1ACE4C91C86761C00A951C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1ACE4CB1C86761C00A951C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1FCE7641CB9B2D9008D3855 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		A1FCE7671CB9B38F008D3855 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		A1FCE7671CB9B38F008D3855 /* UserDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDBManager.swift; sourceTree = "<group>"; };
 		A1FCE7691CB9C5FD008D3855 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A1FCE76D1CB9F33C008D3855 /* BookListingDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListingDBManager.swift; sourceTree = "<group>"; };
 		A1FED2221C9B695B0072712E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB224C9D36595AEA24DF05F8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE37BEED2E67152EBB5C9B17 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,7 +124,8 @@
 		A1FCE7661CB9B343008D3855 /* ClientDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				A1FCE7671CB9B38F008D3855 /* DBManager.swift */,
+				A1FCE7671CB9B38F008D3855 /* UserDBManager.swift */,
+				A1FCE76D1CB9F33C008D3855 /* BookListingDBManager.swift */,
 			);
 			name = ClientDatabase;
 			sourceTree = "<group>";
@@ -264,11 +267,12 @@
 				A1FED2231C9B695B0072712E /* LoginViewController.swift in Sources */,
 				A1852ADC1C8BEBE4000AFF9F /* ProductForSale.swift in Sources */,
 				A15C07901C89468000C1312E /* RegistrationViewController.swift in Sources */,
+				A1FCE76E1CB9F33C008D3855 /* BookListingDBManager.swift in Sources */,
 				A15C078E1C89243500C1312E /* BookListingController.swift in Sources */,
 				A1FCE76A1CB9C5FD008D3855 /* User.swift in Sources */,
 				A1ACE4C01C86761C00A951C7 /* DataViewController.swift in Sources */,
 				A1ACE4BC1C86761C00A951C7 /* AppDelegate.swift in Sources */,
-				A1FCE7681CB9B38F008D3855 /* DBManager.swift in Sources */,
+				A1FCE7681CB9B38F008D3855 /* UserDBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

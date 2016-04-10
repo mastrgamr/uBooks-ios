@@ -10,7 +10,7 @@
 import SQLite
 import Foundation
 
-class DBManager : NSObject {
+class UserDBManager : NSObject {
     
     var db : Connection? = nil //Connection to the local SQLite
     var userTbl : Table? = nil
@@ -22,14 +22,13 @@ class DBManager : NSObject {
     let primaryColor = Expression<String>("primary_color")
     let secondaryColor = Expression<String>("secondary_color")
     
-    init(dbName: String) {
+    override init() {
         
         //Path of the user db
         let path = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true).first!
         
         do { //initialize
-            self.db = try Connection("\(path)/\(dbName).sqlite3")
-            //self.db = try Connection(NSHomeDirectory()+"/Library/Database/\(dbName).sqlite3")
+            self.db = try Connection("\(path)/ub.sqlite3")
         } catch {
             print("Could not establish local DB connection.")
         }
@@ -52,9 +51,9 @@ class DBManager : NSObject {
                 t.column(userId, primaryKey: true)  //     "userId" TEXT PRIMARY KEY NOT NULL,
                 t.column(accessToken, unique: true) //     "accessToken" TEXT UNIQUE NOT NULL,
                 t.column(university)                //     "university" TEXT
-                t.column(college)                   //     "college" TEXT PRIMARY KEY NOT NULL,
-                t.column(primaryColor)              //     "primaryColor" TEXT UNIQUE NOT NULL,
-                t.column(secondaryColor)            //     "secondaryColor" TEXT UNIQUE NOT NULL,
+                t.column(college)                   //     "college" TEXT,
+                t.column(primaryColor)              //     "primaryColor" TEXT,
+                t.column(secondaryColor)            //     "secondaryColor" TEXT,
             })                                      // )
         } catch {
             print("Could not create table")
@@ -65,7 +64,14 @@ class DBManager : NSObject {
     func update(_userId: String, _accessToken: String, _university: String, _college: String, _primaryColor: String, _secondaryColor: String) -> Bool {
         
         do {
-            let insert = userTbl!.insert(userId <- "\(_userId)", accessToken <- "\(_accessToken)", university <- "\(_university)", college <- "\(_college)", primaryColor <- "\(_primaryColor)", secondaryColor <- "\(_secondaryColor)")
+            let insert = userTbl!.insert(
+                userId <- "\(_userId)",
+                accessToken <- "\(_accessToken)",
+                university <- "\(_university)",
+                college <- "\(_college)",
+                primaryColor <- "\(_primaryColor)",
+                secondaryColor <- "\(_secondaryColor)")
+            
             _ = try db!.run(insert) //execute command
             
             return true //successfully inserted user
