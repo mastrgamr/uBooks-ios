@@ -36,10 +36,10 @@ class LoginViewController : UIViewController {
         
         Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/request_login", parameters: param, encoding: .JSON)
             .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
+                //print(response.request)  // original URL request
+                //print(response.response) // URL response
+                //print(response.data)     // server data
+                //print(response.result)   // result of response serialization
                 
                 if let JSON = response.result.value {
                     print("JSON: \(JSON)")
@@ -50,7 +50,12 @@ class LoginViewController : UIViewController {
                     let userDB: UserDBManager = UserDBManager()
                     userDB.create()
                     userDB.update("\(JSON["userid"]!!)", _accessToken: "\(JSON["accesstoken"]!!)", _university: "\(JSON["university"]!!)", _college: "\(JSON["college"]!!)", _primaryColor: "\(JSON["primarycolor"]!!)", _secondaryColor: "\(JSON["secondarycolor"]!!)")
-                    //print(userDB.getUser()!.university!)
+                    //print(userDB.getUser()!.accessToken!)
+                    //print("\(JSON["accesstoken"]!!) -- THE TOKEN")
+                    
+                    if JSON["status"] as! String == "Success" {
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }
                 }
         }
     }

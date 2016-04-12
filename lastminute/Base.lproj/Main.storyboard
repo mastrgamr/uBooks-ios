@@ -148,7 +148,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPs-ZO-wNK">
                                 <rect key="frame" x="242" y="221" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -175,7 +175,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7He-bI-QVa">
                                 <rect key="frame" x="146" y="154" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -210,10 +210,10 @@
             </objects>
             <point key="canvasLocation" x="16.5" y="-305.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="L1e-wv-p3n">
             <objects>
-                <viewController id="AOD-p6-8FF" sceneMemberID="viewController">
+                <viewController id="AOD-p6-8FF" customClass="ProfileViewController" customModule="lastminute" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oa4-vk-d63"/>
                         <viewControllerLayoutGuide type="bottom" id="Yl9-3J-kl5"/>
@@ -247,6 +247,13 @@
                                     <segue destination="LgL-Tp-r2S" kind="presentation" id="ALd-pa-oC2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0O-bc-a2T">
+                                <rect key="frame" x="20" y="78" width="66" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="AOD-p6-8FF" eventType="touchUpInside" id="BOC-dl-AdM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -259,7 +266,7 @@
         <!--Navigation Controller-->
         <scene sceneID="OZY-jj-uDh">
             <objects>
-                <navigationController id="LgL-Tp-r2S" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginNVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LgL-Tp-r2S" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NWd-d8-gdX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

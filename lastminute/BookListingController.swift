@@ -15,14 +15,20 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var cv: UICollectionView!
     
     var pfs: [ProductForSale] = []
+    var isLoggedIn: Bool = false
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
     @IBAction func postNewBook(sender: AnyObject) {
-        let ppvc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("postProductVC"))!
-        self.navigationController?.pushViewController(ppvc, animated: true)
+        if(isLoggedIn){
+            let ppvc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("postProductVC"))!
+            self.navigationController?.pushViewController(ppvc, animated: true)
+        } else {
+            let liNVC: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("loginNVC"))!
+            self.presentViewController(liNVC, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -30,21 +36,24 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         
         self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "TEST!", style: UIBarButtonItemStyle(rawValue: 0)!, target: nil, action: nil)
         
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.automaticallyAdjustsScrollViewInsets = false //shifts table up since its knocked out of line with navcontroller
         
         print(String(UInt64(NSDate().timeIntervalSince1970))) //gets epoch of current time
-        let epoch: String! = String(UInt64(NSDate().timeIntervalSince1970))
+        //let epoch: String! = String(UInt64(NSDate().timeIntervalSince1970))
         let parameters = [
             "date": "1457660629",
             "keyword": "BEFORE"
         ]
-        //let encoding = Alamofire.ParameterEncoding.JSON
-        print(parameters["date"])
+        
+        let userDB: UserDBManager = UserDBManager()
+        userDB.create() //connects to the SQLite
+        isLoggedIn = userDB.isLoggedIn()
+        print("\(isLoggedIn) -- IS LOGGED IN")
         
         Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/products_for_sale", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
                 //print(response.request)  // original URL request
-                print("RESPONSE CODE: \(response.response)") // URL response
+//                print("RESPONSE CODE: \(response.response)") // URL response
                 //print(response.data)     // server data
                 //print(response.result)   // result of response serialization
                 
@@ -90,6 +99,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+    //initializes components within a cell
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         //releases resources the TableCell contains for reuse. Reduces performance/memory impact of scrolling
@@ -126,12 +136,14 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     
     //Handle touch events on a cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("tee hee ^_^")
+        //print("tee hee ^_^")
+        
         //push a to ProductInfo
         let pivc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("productInfoVC"))!
         self.navigationController?.pushViewController(pivc, animated: true)
     }
     
+    //styles the cells in the table
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
         
         return CGSize(width: 180, height: 180)
