@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import Nuke
 
 class BookListingController : UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -101,7 +102,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
                                 creator: item.valueForKey("creator") as? String,
                                 datecreated: item.valueForKey("datecreated") as? String,
                                 dateupdated: item.valueForKey("dateupdated") as? String,
-                                imageurl: item.valueForKey("imageurl") as? String,
+                                imageurl: item.valueForKey("imageuri") as? String,
                                 name: item.valueForKey("name") as? String,
                                 orderid: item.valueForKey("orderid") as? String,
                                 ownerid: item.valueForKey("ownerid") as? String,
@@ -134,6 +135,14 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         
         //Set up title of book/item in listing
         if self.pfs.count != 0 {
+            
+            //Set up Title/Product name
+            if let ct = cell.viewWithTag(3) as! UIImageView? {
+                //unwrap variable and dynamically load image into imageview
+                if(self.pfs[indexPath.row].imageurl != nil) {
+                ct.nk_setImageWith(NSURL(string: self.pfs[indexPath.row].imageurl!)!) //MARK - can possibly make more efficient?
+                }
+            }
             
             //Set up Title/Product name
             if let ct = cell.viewWithTag(1) as! UILabel? {
