@@ -84,9 +84,6 @@
                                             <constraint firstItem="PHl-89-E9T" firstAttribute="top" secondItem="yZR-DK-dQa" secondAttribute="top" id="nvm-MR-6T4"/>
                                         </constraints>
                                         <size key="customSize" width="180" height="180"/>
-                                        <connections>
-                                            <segue destination="PNe-kb-22V" kind="show" identifier="product_seg" id="BpL-jK-X7z"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -132,6 +129,7 @@
                         <outlet property="cv" destination="Xlc-Yg-Tjt" id="ypu-jB-j5E"/>
                         <segue destination="LgL-Tp-r2S" kind="presentation" identifier="log_seg" id="j1m-e5-8hJ"/>
                         <segue destination="AOD-p6-8FF" kind="show" identifier="profile_seg" id="Gcw-G3-ED9"/>
+                        <segue destination="PNe-kb-22V" kind="show" identifier="product_seg" id="bum-6P-ZIs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHA-dV-fZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -177,8 +175,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7He-bI-QVa">
-                                <rect key="frame" x="146" y="154" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7He-bI-QVa">
+                                <rect key="frame" x="69" y="152" width="237" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -187,6 +185,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="productName" destination="7He-bI-QVa" id="un1-lO-KkZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="df8-qe-6uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -528,7 +529,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="j1m-e5-8hJ"/>
+        <segue reference="ALd-pa-oC2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

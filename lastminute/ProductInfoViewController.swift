@@ -11,11 +11,19 @@ import UIKit
 
 class ProductInfoViewController: UIViewController {
     
+    var productInfo: ProductForSale? = nil
+    
+    @IBOutlet weak var productName: UILabel!
+    
     override func viewDidLoad() {
-        //some code
+        self.productName.text = self.productInfo!.name
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func sendProduct(product: ProductForSale) {
+        self.productInfo = product
     }
 }

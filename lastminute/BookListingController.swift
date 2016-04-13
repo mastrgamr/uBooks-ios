@@ -15,7 +15,12 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var cv: UICollectionView!
     
+    let PRODUCT_TITLE: Int = 1
+    let PRODUCT_AUTHOR: Int = 2
+    let PRODUCT_IMAGE: Int = 3
+    
     var pfs: [ProductForSale] = []
+    var selectedProduct: Int = 0;
     
     var isLoggedIn: Bool = false
     var aUser: User? = nil
@@ -51,6 +56,10 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         if (isLoggedIn && segue.identifier == "profile_seg") {
             let profileVC: ProfileViewController = segue.destinationViewController as! ProfileViewController
             profileVC.transferUser(aUser!)
+        }
+        if (segue.identifier == "product_seg") {
+            let productIVC: ProductInfoViewController = segue.destinationViewController as! ProductInfoViewController
+            productIVC.sendProduct(self.pfs[self.selectedProduct])
         }
     }
     
@@ -137,7 +146,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         if self.pfs.count != 0 {
             
             //Set up Title/Product name
-            if let ct = cell.viewWithTag(3) as! UIImageView? {
+            if let ct = cell.viewWithTag(PRODUCT_IMAGE) as! UIImageView? {
                 //unwrap variable and dynamically load image into imageview
                 if(self.pfs[indexPath.row].imageurl != nil) {
                 ct.nk_setImageWith(NSURL(string: self.pfs[indexPath.row].imageurl!)!) //MARK - can possibly make more efficient?
@@ -145,7 +154,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
             }
             
             //Set up Title/Product name
-            if let ct = cell.viewWithTag(1) as! UILabel? {
+            if let ct = cell.viewWithTag(PRODUCT_TITLE) as! UILabel? {
                 var name: String! = ""
                 
                 //unwrap variables
@@ -156,7 +165,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
             }
             
             //Set up Author/Creator
-            if let ct = cell.viewWithTag(2) as! UILabel? {
+            if let ct = cell.viewWithTag(PRODUCT_AUTHOR) as! UILabel? {
                 var creator: String! = ""
                 
                 //unwrap variables
@@ -174,9 +183,9 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         //print("tee hee ^_^")
         
+        self.selectedProduct = indexPath.row
         //push a to ProductInfo
-        let pivc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("productInfoVC"))!
-        self.navigationController?.pushViewController(pivc, animated: true)
+        self.performSegueWithIdentifier("product_seg", sender: self)
     }
     
     //styles the cells in the table
