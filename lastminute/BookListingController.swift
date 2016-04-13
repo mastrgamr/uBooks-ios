@@ -95,7 +95,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
                 
                 
                 if let JSON = response.result.value {
-                    //print("JSON: \(JSON)")
+                    print("JSON: \(JSON)")
                     
                     let products = JSON.valueForKey("products") as! NSArray
                     
@@ -149,7 +149,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
             if let ct = cell.viewWithTag(PRODUCT_IMAGE) as! UIImageView? {
                 //unwrap variable and dynamically load image into imageview
                 if(self.pfs[indexPath.row].imageurl != nil) {
-                ct.nk_setImageWith(NSURL(string: self.pfs[indexPath.row].imageurl!)!) //MARK - can possibly make more efficient?
+                    ct.nk_setImageWith(NSURL(string: self.pfs[indexPath.row].imageurl!)!) //MARK - can possibly make more efficient?
                 }
             }
             
