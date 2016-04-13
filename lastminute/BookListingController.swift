@@ -15,19 +15,41 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var cv: UICollectionView!
     
     var pfs: [ProductForSale] = []
+    
     var isLoggedIn: Bool = false
+    var aUser: User? = nil
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
+    @IBAction func viewProfile(sender: AnyObject) {
+        if(isLoggedIn) {
+            self.performSegueWithIdentifier("profile_seg", sender: self)
+        } else {
+            self.performSegueWithIdentifier("log_seg", sender: self)
+        }
+    }
+    
     @IBAction func postNewBook(sender: AnyObject) {
         if(isLoggedIn){
-            let ppvc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("postProductVC"))!
-            self.navigationController?.pushViewController(ppvc, animated: true)
+            //let ppvc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("postProductVC"))!
+            //self.navigationController?.pushViewController(ppvc, animated: true)
+            self.performSegueWithIdentifier("post_seg", sender: self)
         } else {
-            let liNVC: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("loginNVC"))!
-            self.presentViewController(liNVC, animated: true, completion: nil)
+            self.performSegueWithIdentifier("log_seg", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "log_seg") {
+            //var svc = segue!.destinationViewController as secondViewController;
+            let naVC: AuthenticationNavController = segue.destinationViewController as! AuthenticationNavController
+            naVC.setIt("EY BITCH!!")
+        }
+        if (isLoggedIn && segue.identifier == "profile_seg") {
+            let profileVC: ProfileViewController = segue.destinationViewController as! ProfileViewController
+            profileVC.transferUser(aUser!)
         }
     }
     
@@ -39,23 +61,28 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         self.automaticallyAdjustsScrollViewInsets = false //shifts table up since its knocked out of line with navcontroller
         
         print(String(UInt64(NSDate().timeIntervalSince1970))) //gets epoch of current time
-        //let epoch: String! = String(UInt64(NSDate().timeIntervalSince1970))
-        let parameters = [
-            "date": "1457660629",
+        //let epoch: String? = String(UInt64(NSDate().timeIntervalSince1970))
+        
+        let parameters: [String:String] = [
+            "date": "1460504108",
             "keyword": "BEFORE"
         ]
         
         let userDB: UserDBManager = UserDBManager()
         userDB.create() //connects to the SQLite
         isLoggedIn = userDB.isLoggedIn()
+        if(isLoggedIn) {
+            aUser = userDB.getUser()!;
+        }
         print("\(isLoggedIn) -- IS LOGGED IN")
         
         Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/products_for_sale", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
                 //print(response.request)  // original URL request
-//                print("RESPONSE CODE: \(response.response)") // URL response
+                print("RESPONSE CODE: \(response.response)") // URL response
                 //print(response.data)     // server data
                 //print(response.result)   // result of response serialization
+                
                 
                 if let JSON = response.result.value {
                     //print("JSON: \(JSON)")

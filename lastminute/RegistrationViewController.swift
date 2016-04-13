@@ -27,7 +27,7 @@ class RegistrationViewController : UIViewController, UIPickerViewDelegate, UIScr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Some Code ...
+
         self.automaticallyAdjustsScrollViewInsets = false
     }
     

@@ -15,7 +15,6 @@ class LoginViewController : UIViewController {
     @IBOutlet weak var userTextEmail: UITextField!
     @IBOutlet weak var userTextPassword: UITextField!
     
-    
     override func viewDidLoad() {
         //Some Code ...
         

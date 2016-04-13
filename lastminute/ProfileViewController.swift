@@ -11,6 +11,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    var user: User? = nil
+    
     @IBAction func logout(sender: AnyObject) {
         let userDB: UserDBManager = UserDBManager()
         userDB.create() //MARK - Create better way to connnect
@@ -23,5 +25,9 @@ class ProfileViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func transferUser(user: User) {
+        self.user = user
     }
 }
