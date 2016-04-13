@@ -5,6 +5,8 @@
 //  Created by stuart on 4/9/16.
 //  Copyright © 2016 lastminute. All rights reserved.
 //
+//  Wrapper class utilizing SQLite.swift Library
+//  https://github.com/stephencelis/SQLite.swift
 
 
 import SQLite
