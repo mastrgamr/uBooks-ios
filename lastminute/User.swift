@@ -17,12 +17,19 @@ class User: NSObject {
     let primaryColor : String?
     let secondaryColor : String?
     
-    init(userId: String, accessToken: String, university: String, college: String, primaryColor: String, secondaryColor: String) {
+    let userName : String?
+    let email : String?
+    
+    init(userId: String, accessToken: String, university: String, college: String, primaryColor: String, secondaryColor: String, firstName: String? = nil, lastName: String? = nil, email: String? = nil) {
+        
         self.userId = userId
         self.accessToken = accessToken
         self.university = university
         self.college = college
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
+        
+        self.userName = firstName! + " " + lastName!
+        self.email = email!
     }
 }

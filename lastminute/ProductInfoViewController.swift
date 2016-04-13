@@ -29,6 +29,14 @@ class ProductInfoViewController: UIViewController {
         self.productImage.nk_setImageWith(NSURL(string: "http://i.imgur.com/n1dqSc4.jpg?1")!)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "productToProfile_seg") {
+            //var svc = segue!.destinationViewController as secondViewController;
+            let profileVC: ProfileViewController = segue.destinationViewController as! ProfileViewController
+            profileVC.transferUserId((self.productInfo?.ownerid)!)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
