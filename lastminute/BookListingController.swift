@@ -120,6 +120,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+    //called everytime the screen shows up on screen
     override func viewDidAppear(animated: Bool) {
         let userDB: UserDBManager = UserDBManager()
         userDB.create() //connects to the SQLite
@@ -194,7 +195,12 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
     //styles the cells in the table
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
         
-        return CGSize(width: 180, height: 180)
+        let screenRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenRect.size.width
+        let cellWidth = (screenWidth / 2.0) - 10
+        let size = CGSize(width: cellWidth, height: cellWidth) //dynamically size rows based on screen size
+        
+        return size //CGSize(width: 180, height: 180)
     }
     
     override func didReceiveMemoryWarning() {

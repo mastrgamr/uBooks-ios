@@ -32,7 +32,7 @@ class UserDBManager : NSObject {
         do { //initialize
             self.db = try Connection("\(path)/ub.sqlite3")
         } catch {
-            print("Could not establish local DB connection.")
+            print("Could not establish local DB connection. \(error)")
         }
         
     }
@@ -117,7 +117,7 @@ class UserDBManager : NSObject {
             }
             return user
         } catch {
-            print("Could not query table.")
+            print("Could not query table. \(error)")
         }
         
         return nil

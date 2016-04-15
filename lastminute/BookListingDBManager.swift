@@ -37,7 +37,7 @@ class BookListingDBManager : NSObject {
         do { //initialize
             self.db = try Connection("\(path)/ub.sqlite3")
         } catch {
-            print("Could not establish local DB connection.")
+            print("Could not establish local DB connection. \(error)")
         }
         
     }
@@ -74,7 +74,7 @@ class BookListingDBManager : NSObject {
                 t.column(imageUri)
                 })
         } catch {
-            print("Could not create table")
+            print("Could not create table. \(error)")
         }
     }
     
@@ -100,7 +100,7 @@ class BookListingDBManager : NSObject {
             
             return true //successfully inserted user
         } catch {
-            print("Could not INSERT product to local DB")
+            print("Could not INSERT product to local DB. \(error)")
         }
         
         return false
@@ -127,7 +127,7 @@ class BookListingDBManager : NSObject {
                 _ = try db!.run(insert) //execute command
             }
             
-            print("Successfully inserted")
+            print("Successfully inserted products in the table")
             return true //successfully inserted user
         } catch {
             print("Could not INSERT product to local DB. \(error)")
@@ -148,7 +148,7 @@ class BookListingDBManager : NSObject {
             }
             return product
         } catch {
-            print("Could not query table.")
+            print("Could not query table. \(error)")
         }
         
         return nil
