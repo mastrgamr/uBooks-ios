@@ -10,12 +10,11 @@ import Foundation
 import UIKit
 import Nuke
 
-class ProductInfoViewController: UIViewController {
+class ProductInfoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     var productInfo: ProductForSale? = nil
     
     @IBOutlet weak var productName: UILabel!
-    @IBOutlet weak var productImage: UIImageView!
     
     var image: UIImage? = nil
     
@@ -25,8 +24,9 @@ class ProductInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         self.productName.text = self.productInfo!.name
+        self.automaticallyAdjustsScrollViewInsets = false
         
-        self.productImage.nk_setImageWith(NSURL(string: "http://i.imgur.com/n1dqSc4.jpg?1")!)
+        //self.productImage.nk_setImageWith(NSURL(string: "http://i.imgur.com/n1dqSc4.jpg?1")!)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

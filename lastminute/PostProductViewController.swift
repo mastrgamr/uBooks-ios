@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-class PostProductViewController: UIViewController {
+class PostProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     @IBAction func getImages(sender: AnyObject) {
         self.performSegueWithIdentifier("postToCamera_seg", sender: self)
     }
+    
     override func viewDidLoad() {
-        //some code
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     override func didReceiveMemoryWarning() {

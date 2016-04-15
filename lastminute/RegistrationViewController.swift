@@ -7,22 +7,58 @@
 //
 
 import UIKit
+import Alamofire
 
 class RegistrationViewController : UIViewController, UIPickerViewDelegate, UIScrollViewDelegate {
     
-    @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var schoolPicker: UIPickerView!
+    @IBOutlet weak var password: UITextField!
+    
+    private var selectedShool: String = ""
     
     var schoolNames = ["Hunter College", "College of Staten Island", "Brooklyn College"]
     
     @IBAction func undoSeg(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
     @IBAction func clicks(sender: AnyObject) {
-        //let datav: DataViewController = DataViewController()
-        //self.presentViewController(datav, animated: true, completion: nil)
+        
+        let parameters: [String:String] = [
+            "firstname": firstName.text!,
+            "lastname": lastName.text!,
+            "college": selectedShool,
+            "email": email.text!,
+            "password": password.text!,
+            "registrationid": "No GCM"
+        ]
+        
+        //registers teh user and logs in if successful
+        Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/create_account", parameters: parameters, encoding: .JSON)
+            .responseJSON { response in
+                //print(response.request)  // original URL request
+                print("RESPONSE CODE: \(response.response)") // URL response
+                //print(response.data)     // server data
+                //print(response.result)   // result of response serialization
+                
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                    
+                    let userDB: UserDBManager = UserDBManager()
+                    userDB.create()
+                    userDB.update("\(JSON["userid"]!!)", _accessToken: "\(JSON["accesstoken"]!!)", _university: "\(JSON["universityname"]!!)", _college: "\(JSON["collegename"]!!)", _primaryColor: "\(JSON["primarycolor"]!!)", _secondaryColor: "\(JSON["secondarycolor"]!!)")
+                    
+                    if JSON["status"] as! String == "Success" {
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }
+
+                }
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -51,7 +87,8 @@ class RegistrationViewController : UIViewController, UIPickerViewDelegate, UIScr
     
     //returns the name of the school contained in the array at the specific index
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return schoolNames[row]
+        selectedShool = schoolNames[row]
+        return selectedShool
     }
     
 }

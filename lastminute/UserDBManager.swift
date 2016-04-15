@@ -111,7 +111,7 @@ class UserDBManager : NSObject {
         
         do {
             for _user in try db!.prepare(userTbl!) {
-                print("id: \(_user[userId]), college: \(_user[college]), primary_color: \(_user[primaryColor]), secondary_color: \(_user[secondaryColor]), access_token: \(_user[accessToken])")
+                //print("id: \(_user[userId]), college: \(_user[college]), primary_color: \(_user[primaryColor]), secondary_color: \(_user[secondaryColor]), access_token: \(_user[accessToken])")
                 
                 user = User(userId: _user[userId], accessToken: _user[accessToken]!, university: _user[university], college: _user[college], primaryColor: _user[primaryColor], secondaryColor: _user[secondaryColor])
             }
