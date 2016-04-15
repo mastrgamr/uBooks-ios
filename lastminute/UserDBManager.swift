@@ -141,13 +141,12 @@ class UserDBManager : NSObject {
         return false
     }
     
-    //inserts a nil value for the accesss_token column. indicating a logged out user
+    //drop the table. indicating a logged out user
     func logUserOut() -> Void {
         do {
-            let user = userTbl!.filter(accessToken != nil)
             
-            try db!.run(user.update(accessToken <- nil))
-            // UPDATE "users" SET "access_token" = nil WHERE ("access_token" != nil)
+            try db!.run(userTbl!.drop(ifExists: true))
+            // drop the take on log out
             print("Logged out")
         } catch {
             print("Could not perform query to local DB: \(error)")

@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="df8-qe-6uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932.5" y="488.5"/>
+            <point key="canvasLocation" x="1472.5" y="495.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YwE-Yb-L9i">
@@ -295,6 +295,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="lblCollegeName" destination="6En-Xg-fCO" id="FFR-cN-gkI"/>
+                        <outlet property="lblUniversityName" destination="uzL-jq-G4V" id="mDH-1c-cOq"/>
                         <outlet property="lblUsername" destination="aEF-u6-Mxu" id="teq-rX-hCQ"/>
                     </connections>
                 </viewController>
@@ -599,12 +601,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIS-bm-Sdp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1626.5" y="481.5"/>
+            <point key="canvasLocation" x="1024.5" y="916.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Gcw-G3-ED9"/>
-        <segue reference="j1m-e5-8hJ"/>
+        <segue reference="BRl-yY-sbx"/>
+        <segue reference="ALd-pa-oC2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     var userName: String? = nil
     
     @IBOutlet weak var lblUsername: UILabel!
+    @IBOutlet weak var lblCollegeName: UILabel!
+    @IBOutlet weak var lblUniversityName: UILabel!
     
     
     @IBAction func logout(sender: AnyObject) {
@@ -52,6 +54,8 @@ class ProfileViewController: UIViewController {
                     }*/
                     
                     self.lblUsername.text = (JSON["user"]!!["firstname"]!! as! String) + " " + (JSON["user"]!!["lastname"]!! as! String)
+                    self.lblCollegeName.text = (JSON["user"]!!["collegename"]!! as! String)
+                    self.lblUniversityName.text = (JSON["user"]!!["universityname"]!! as! String)
                 }
         }
  
