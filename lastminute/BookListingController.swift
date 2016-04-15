@@ -78,13 +78,6 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
             "keyword": "BEFORE"
         ]
         
-        let userDB: UserDBManager = UserDBManager()
-        userDB.create() //connects to the SQLite
-        isLoggedIn = userDB.isLoggedIn()
-        if(isLoggedIn) {
-            aUser = userDB.getUser()!;
-        }
-        print("\(isLoggedIn) -- IS LOGGED IN")
         
         Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/products_for_sale", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
@@ -125,6 +118,16 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
                     self.cv.reloadData()
                 }
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let userDB: UserDBManager = UserDBManager()
+        userDB.create() //connects to the SQLite
+        isLoggedIn = userDB.isLoggedIn()
+        if(isLoggedIn) {
+            aUser = userDB.getUser()!;
+        }
+        print("\(isLoggedIn) -- IS LOGGED IN")
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

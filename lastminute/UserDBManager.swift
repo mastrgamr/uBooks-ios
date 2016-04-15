@@ -129,7 +129,7 @@ class UserDBManager : NSObject {
         
         do {
             for q in try db!.prepare(query) {
-                //print("\(q[accessToken]!)")
+                //print("\(q[accessToken]!) -- LE TOKEN!!")
                 if q[accessToken] != nil { //if the accesstoken stored for the user is not null
                     return true
                 }
