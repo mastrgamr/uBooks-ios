@@ -11,6 +11,9 @@ import UIKit
 
 class PostProductViewController: UIViewController {
     
+    @IBAction func getImages(sender: AnyObject) {
+        self.performSegueWithIdentifier("postToCamera_seg", sender: self)
+    }
     override func viewDidLoad() {
         //some code
     }

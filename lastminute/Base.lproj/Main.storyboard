@@ -130,6 +130,7 @@
                         <segue destination="LgL-Tp-r2S" kind="presentation" identifier="log_seg" id="j1m-e5-8hJ"/>
                         <segue destination="AOD-p6-8FF" kind="show" identifier="profile_seg" id="Gcw-G3-ED9"/>
                         <segue destination="PNe-kb-22V" kind="show" identifier="product_seg" id="bum-6P-ZIs"/>
+                        <segue destination="MlW-rW-03H" kind="show" identifier="post_seg" id="K4q-Og-iLc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHA-dV-fZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,10 +155,20 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5p-SR-HZb">
+                                <rect key="frame" x="113" y="123" width="149" height="30"/>
+                                <state key="normal" title="Take photo"/>
+                                <connections>
+                                    <action selector="getImages:" destination="MlW-rW-03H" eventType="touchUpInside" id="aVm-ky-jTq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="fzz-tr-zle" kind="show" identifier="postToCamera_seg" id="xZP-iI-Z6L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Obs-Gi-EOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -549,10 +560,51 @@
             </objects>
             <point key="canvasLocation" x="1881.5" y="-305.5"/>
         </scene>
+        <!--Select Photo View Controller-->
+        <scene sceneID="txK-Z2-DCr">
+            <objects>
+                <viewController storyboardIdentifier="photoSelectionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fzz-tr-zle" customClass="SelectPhotoViewController" customModule="lastminute" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nve-9a-FpS"/>
+                        <viewControllerLayoutGuide type="bottom" id="cUT-1V-VrU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M9j-kU-P9d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MbA-o9-hlA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g35-7T-Nud">
+                                <rect key="frame" x="57" y="617" width="46" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="fzz-tr-zle" eventType="touchUpInside" id="UcC-PN-50g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyi-mG-Mj5">
+                                <rect key="frame" x="252" y="617" width="46" height="30"/>
+                                <state key="normal" title="Select"/>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="fzz-tr-zle" eventType="touchUpInside" id="pQ0-Gd-pWy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="MbA-o9-hlA" id="scK-Jz-LwW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iIS-bm-Sdp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1626.5" y="481.5"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ALd-pa-oC2"/>
-        <segue reference="BRl-yY-sbx"/>
+        <segue reference="Gcw-G3-ED9"/>
+        <segue reference="j1m-e5-8hJ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

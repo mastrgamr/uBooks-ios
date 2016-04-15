@@ -29,7 +29,7 @@ class User: NSObject {
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
         
-        self.userName = firstName! + " " + lastName!
-        self.email = email!
+        self.userName = nil//firstName! + " " + lastName!
+        self.email = nil //email!
     }
 }

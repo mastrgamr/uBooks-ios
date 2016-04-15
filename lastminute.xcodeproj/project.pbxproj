@@ -20,6 +20,7 @@
 		A1ACE4C71C86761C00A951C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C61C86761C00A951C7 /* Assets.xcassets */; };
 		A1ACE4CA1C86761C00A951C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C81C86761C00A951C7 /* LaunchScreen.storyboard */; };
 		A1BAC2A51CBDAD8500FDAD49 /* AuthenticationNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BAC2A41CBDAD8500FDAD49 /* AuthenticationNavController.swift */; };
+		A1FB48681CC063E80006B712 /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB48671CC063E80006B712 /* SelectPhotoViewController.swift */; };
 		A1FCE7681CB9B38F008D3855 /* UserDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7671CB9B38F008D3855 /* UserDBManager.swift */; };
 		A1FCE76A1CB9C5FD008D3855 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7691CB9C5FD008D3855 /* User.swift */; };
 		A1FCE76E1CB9F33C008D3855 /* BookListingDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE76D1CB9F33C008D3855 /* BookListingDBManager.swift */; };
@@ -44,6 +45,7 @@
 		A1ACE4C91C86761C00A951C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1ACE4CB1C86761C00A951C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BAC2A41CBDAD8500FDAD49 /* AuthenticationNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationNavController.swift; sourceTree = "<group>"; };
+		A1FB48671CC063E80006B712 /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
 		A1FCE7641CB9B2D9008D3855 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A1FCE7671CB9B38F008D3855 /* UserDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDBManager.swift; sourceTree = "<group>"; };
 		A1FCE7691CB9C5FD008D3855 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				A11B98621CBADF240020E6F1 /* ProductInfoViewController.swift */,
 				A14EF4E41CBC920C003AD28B /* ProfileViewController.swift */,
 				A1BAC2A41CBDAD8500FDAD49 /* AuthenticationNavController.swift */,
+				A1FB48671CC063E80006B712 /* SelectPhotoViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1FED2231C9B695B0072712E /* LoginViewController.swift in Sources */,
+				A1FB48681CC063E80006B712 /* SelectPhotoViewController.swift in Sources */,
 				A1852ADC1C8BEBE4000AFF9F /* ProductForSale.swift in Sources */,
 				A11B98611CBADAF20020E6F1 /* PostProductViewController.swift in Sources */,
 				A1BAC2A51CBDAD8500FDAD49 /* AuthenticationNavController.swift in Sources */,

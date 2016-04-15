@@ -200,11 +200,11 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
 }
 
 //referenced via - http://stackoverflow.com/questions/19108513/uistatusbarstyle-preferredstatusbarstyle-does-not-work-on-ios-7
-extension UINavigationController {
+/*extension UINavigationController {
     public override func preferredStatusBarStyle() -> UIStatusBarStyle {
         if let rootViewController = self.viewControllers.first {
             return rootViewController.preferredStatusBarStyle() //returns the statusbar color specified in the ViewController
         }
         return self.preferredStatusBarStyle()
     }
-}
+}*/
