@@ -12,6 +12,7 @@ import UIKit
 class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
+    static var sendBack: SendBackDelegate!
     
     let imagePicker = UIImagePickerController()
     
@@ -33,7 +34,6 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func selectPhoto(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             let imagePicker = UIImagePickerController()
-            
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             imagePicker.allowsEditing = false
@@ -45,6 +45,8 @@ class SelectPhotoViewController: UIViewController, UIImagePickerControllerDelega
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .ScaleAspectFit
             imageView.image = pickedImage
+            
+            SelectPhotoViewController.sendBack!.sendImagesToPreviousVC(pickedImage)
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
