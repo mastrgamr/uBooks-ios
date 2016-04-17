@@ -8,12 +8,71 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class PostProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, SendBackDelegate {
     
     @IBOutlet weak var cv: UICollectionView!
+    @IBOutlet weak var itemNameField: UITextField!
+    @IBOutlet weak var creatorField: UITextField!
+    @IBOutlet weak var barcodeField: UITextField!
+    @IBOutlet weak var priceField: UITextField!
+    
+    var userId: String = ""
+    var accessToekn: String = ""
     
     var images: [UIImage] = []
+    
+    @IBAction func uploadImages(sender: AnyObject) {
+        //Parameters: accesstoken, file, orderid
+    }
+    
+    @IBAction func postProduct(sender: AnyObject) {
+        
+        let parameters: [String:String] = [
+            "categoryid": "1",
+            "name": itemNameField.text!,
+            "creator": creatorField.text!,
+            "barcode": barcodeField.text!,
+            "secondarybarcode": "1234567890123",
+            "userid": self.userId,
+            "accesstoken": self.accessToekn,
+            "price": priceField.text!
+        ]
+        
+        
+        Alamofire.upload( .POST, "http://52.20.241.139/api/v1.0/add_product_for_sale",
+            multipartFormData: { multipartFormData in
+                
+                multipartFormData.appendBodyPart(data: UIImageJPEGRepresentation(self.images[0], 0.7)!, name: "file", fileName: "product_image.jpg", mimeType: "image/jpg")
+                
+                for (key, value) in parameters {
+                    multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
+                    print(key + " " + value)
+                }
+                
+            },
+            encodingCompletion: { encodingResult in
+                
+                print("encoding complete")
+                
+                switch encodingResult {
+                    
+                case .Success(let upload, _, _):
+                    upload.responseJSON { response in
+                        //debugPrint(response)
+                        //print(response.request)  // original URL request
+                        print("RESPONSE CODE: \(response.response)") // URL response
+                        //print(response.data)     // server data
+                        //print(response.result)   // result of response serialization
+                    }
+                    
+                case .Failure(let encodingError):
+                    print(encodingError)
+                }
+            }
+        )
+    }
     
     @IBAction func getImages(sender: AnyObject) {
         self.performSegueWithIdentifier("postToCamera_seg", sender: self)
@@ -21,6 +80,13 @@ class PostProductViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         self.automaticallyAdjustsScrollViewInsets = false
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let userDB: UserDBManager = UserDBManager()
+        userDB.create() //connects to the SQLite
+        self.accessToekn = userDB.getUser()!.accessToken!
+        self.userId = userDB.getUser()!.userId!
     }
     
     func sendImagesToPreviousVC(images: UIImage) {

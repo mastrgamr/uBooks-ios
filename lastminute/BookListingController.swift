@@ -71,10 +71,11 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         self.automaticallyAdjustsScrollViewInsets = false //shifts table up since its knocked out of line with navcontroller
         
         print(String(UInt64(NSDate().timeIntervalSince1970))) //gets epoch of current time
-        //let epoch: String? = String(UInt64(NSDate().timeIntervalSince1970))
+        //let epoch: String? = String(UInt64(NSDate().timeIntervalSince1970)) //1460848415
+        //"date":2016-04-05 12:40:00.792107"
         
         let parameters: [String:String] = [
-            "date": "1460504108",
+            "date": "null",
             "keyword": "BEFORE"
         ]
         
@@ -86,9 +87,8 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
                 //print(response.data)     // server data
                 //print(response.result)   // result of response serialization
                 
-                
                 if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                    //print("JSON: \(JSON)")
                     
                     let products = JSON.valueForKey("products") as! NSArray
                     
@@ -127,6 +127,8 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         isLoggedIn = userDB.isLoggedIn()
         if(isLoggedIn) {
             aUser = userDB.getUser()!;
+            print("\(aUser?.userId) - ID")
+            print("\(aUser?.accessToken) - TOKEN")
         }
         print("\(isLoggedIn) -- IS LOGGED IN")
     }
