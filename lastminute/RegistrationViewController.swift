@@ -71,10 +71,6 @@ class RegistrationViewController : UIViewController, UIPickerViewDelegate, UIScr
         super.didReceiveMemoryWarning()
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true) //hides keyboard
-    }
-    
     //Not sure why this is needed -- Google More
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1

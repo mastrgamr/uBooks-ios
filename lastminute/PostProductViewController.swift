@@ -80,6 +80,7 @@ class PostProductViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         self.automaticallyAdjustsScrollViewInsets = false
+        self.hideKeyboardWhenTappedAround() 
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -87,6 +88,10 @@ class PostProductViewController: UIViewController, UICollectionViewDelegate, UIC
         userDB.create() //connects to the SQLite
         self.accessToekn = userDB.getUser()!.accessToken!
         self.userId = userDB.getUser()!.userId!
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true) //hides keyboard
     }
     
     func sendImagesToPreviousVC(images: UIImage) {

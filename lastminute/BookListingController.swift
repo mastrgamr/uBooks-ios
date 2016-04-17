@@ -219,3 +219,16 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         return self.preferredStatusBarStyle()
     }
 }*/
+
+// Put this piece of code anywhere you like
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        print("tap")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
