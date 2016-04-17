@@ -44,7 +44,7 @@ class PostProductViewController: UIViewController, UICollectionViewDelegate, UIC
         Alamofire.upload( .POST, "http://52.20.241.139/api/v1.0/add_product_for_sale",
             multipartFormData: { multipartFormData in
                 
-                multipartFormData.appendBodyPart(data: UIImageJPEGRepresentation(self.images[0], 0.7)!, name: "file", fileName: "product_image.jpg", mimeType: "image/jpg")
+                multipartFormData.appendBodyPart(data: UIImageJPEGRepresentation(self.images[0], 0.7)!, name: "file", fileName: "IMG_0002.JPG", mimeType: "image/jpeg")
                 
                 for (key, value) in parameters {
                     multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
