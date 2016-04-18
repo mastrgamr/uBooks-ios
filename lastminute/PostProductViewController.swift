@@ -17,6 +17,7 @@ class PostProductViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var creatorField: UITextField!
     @IBOutlet weak var barcodeField: UITextField!
     @IBOutlet weak var priceField: UITextField!
+    @IBOutlet weak var sv: UIScrollView!
     
     var userId: String = ""
     var accessToekn: String = ""
@@ -80,7 +81,8 @@ class PostProductViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         self.automaticallyAdjustsScrollViewInsets = false
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
+        self.sv.contentSize = CGSize(width: 30.0, height: 600.0)
     }
     
     override func viewDidAppear(animated: Bool) {

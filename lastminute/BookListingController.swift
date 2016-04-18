@@ -29,18 +29,14 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         return UIStatusBarStyle.LightContent
     }
     
-    @IBAction func viewProfile(sender: AnyObject) {
-        if(isLoggedIn) {
-            self.performSegueWithIdentifier("profile_seg", sender: self)
-        } else {
-            self.performSegueWithIdentifier("log_seg", sender: self)
-        }
-    }
-    
     @IBAction func postNewBook(sender: AnyObject) {
+        /*
+         if(isLoggedIn) {
+         self.performSegueWithIdentifier("profile_seg", sender: self)
+         } else {
+         self.performSegueWithIdentifier("log_seg", sender: self)
+         }*/
         if(isLoggedIn){
-            //let ppvc: UIViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("postProductVC"))!
-            //self.navigationController?.pushViewController(ppvc, animated: true)
             self.performSegueWithIdentifier("post_seg", sender: self)
         } else {
             self.performSegueWithIdentifier("log_seg", sender: self)
@@ -223,7 +219,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
 // Put this piece of code anywhere you like
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
-        print("tap")
+        //print("tap")
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
