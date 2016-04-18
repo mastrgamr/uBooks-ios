@@ -173,7 +173,9 @@
                             <constraint firstItem="EJP-WJ-4PE" firstAttribute="top" secondItem="tUE-uf-2xf" secondAttribute="bottom" constant="303" id="rIL-gS-VfG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messaging" id="5LI-te-7MM"/>
+                    <tabBarItem key="tabBarItem" title="Messaging" image="Messaging Icon" id="5LI-te-7MM">
+                        <inset key="imageInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                    </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhr-2E-ec6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -444,7 +446,9 @@
         <scene sceneID="YwE-Yb-L9i">
             <objects>
                 <navigationController id="xCN-Ho-2ns" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Listings" id="dnB-iq-G4W"/>
+                    <tabBarItem key="tabBarItem" title="Listings" image="Listings Icon" id="dnB-iq-G4W">
+                        <inset key="imageInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                    </tabBarItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ggF-Fc-8Ih">
@@ -512,7 +516,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="m5t-TY-6tD"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile Icon" id="m5t-TY-6tD">
+                        <inset key="imageInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                    </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="lblCollegeName" destination="6En-Xg-fCO" id="FFR-cN-gkI"/>
@@ -948,8 +954,13 @@
             <point key="canvasLocation" x="-756.5" y="-1176.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Listings Icon" width="48" height="48"/>
+        <image name="Messaging Icon" width="48" height="48"/>
+        <image name="Profile Icon" width="48" height="48"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BRl-yY-sbx"/>
+        <segue reference="KgL-4b-gY0"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.20000000000000001" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
