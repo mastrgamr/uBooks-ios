@@ -82,7 +82,7 @@ class PostProductViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         self.automaticallyAdjustsScrollViewInsets = false
         self.hideKeyboardWhenTappedAround()
-        self.sv.contentSize = CGSize(width: 30.0, height: 600.0)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -90,6 +90,14 @@ class PostProductViewController: UIViewController, UICollectionViewDelegate, UIC
         userDB.create() //connects to the SQLite
         self.accessToekn = userDB.getUser()!.accessToken!
         self.userId = userDB.getUser()!.userId!
+        
+        self.sv.contentSize = CGSize(width: 0, height: 1000.0)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.sv.contentSize = CGSize(width: 0, height: 1000.0)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
