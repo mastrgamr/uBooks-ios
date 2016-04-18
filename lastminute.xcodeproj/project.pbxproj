@@ -20,6 +20,7 @@
 		A1ACE4C71C86761C00A951C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C61C86761C00A951C7 /* Assets.xcassets */; };
 		A1ACE4CA1C86761C00A951C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1ACE4C81C86761C00A951C7 /* LaunchScreen.storyboard */; };
 		A1BAC2A51CBDAD8500FDAD49 /* AuthenticationNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BAC2A41CBDAD8500FDAD49 /* AuthenticationNavController.swift */; };
+		A1ED1DC41CC4837900F5A787 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ED1DC31CC4837900F5A787 /* TableController.swift */; };
 		A1FB48681CC063E80006B712 /* SelectPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB48671CC063E80006B712 /* SelectPhotoController.swift */; };
 		A1FCE7681CB9B38F008D3855 /* UserDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7671CB9B38F008D3855 /* UserDBManager.swift */; };
 		A1FCE76A1CB9C5FD008D3855 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FCE7691CB9C5FD008D3855 /* User.swift */; };
@@ -45,6 +46,7 @@
 		A1ACE4C91C86761C00A951C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1ACE4CB1C86761C00A951C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BAC2A41CBDAD8500FDAD49 /* AuthenticationNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationNavController.swift; sourceTree = "<group>"; };
+		A1ED1DC31CC4837900F5A787 /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		A1FB48671CC063E80006B712 /* SelectPhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoController.swift; sourceTree = "<group>"; };
 		A1FCE7641CB9B2D9008D3855 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A1FCE7671CB9B38F008D3855 /* UserDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDBManager.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				A1852ADA1C8BEB97000AFF9F /* EndpointModels */,
 				A15C07911C89471700C1312E /* ViewControllers */,
 				A1ACE4BB1C86761C00A951C7 /* AppDelegate.swift */,
+				A1ED1DC31CC4837900F5A787 /* TableController.swift */,
 				A1ACE4C31C86761C00A951C7 /* Main.storyboard */,
 				A1ACE4C61C86761C00A951C7 /* Assets.xcassets */,
 				A1ACE4C81C86761C00A951C7 /* LaunchScreen.storyboard */,
@@ -290,6 +293,7 @@
 				A1FED2231C9B695B0072712E /* LoginViewController.swift in Sources */,
 				A1FB48681CC063E80006B712 /* SelectPhotoController.swift in Sources */,
 				A1852ADC1C8BEBE4000AFF9F /* ProductForSale.swift in Sources */,
+				A1ED1DC41CC4837900F5A787 /* TableController.swift in Sources */,
 				A11B98611CBADAF20020E6F1 /* PostProductController.swift in Sources */,
 				A1BAC2A51CBDAD8500FDAD49 /* AuthenticationNavController.swift in Sources */,
 				A15C07901C89468000C1312E /* RegistrationController.swift in Sources */,
