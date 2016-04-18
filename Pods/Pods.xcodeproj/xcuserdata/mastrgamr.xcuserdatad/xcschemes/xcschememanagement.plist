@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Former.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Nuke-Alamofire-Plugin.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>980933AEBFB68262FC5D0C757539CEE4</key>
+		<key>ABD6B8C63DF779FA606206C94E96A7AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA7DED0F517AEA7111D8C255564B4DAE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EE39193FB5D89A592B6EEE84DC5D5743</key>
+		<key>E6E2058E7E1953F97DFDBCED6FA019D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
