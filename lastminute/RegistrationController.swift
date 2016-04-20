@@ -37,7 +37,7 @@ class RegistrationViewController : UIViewController, UIPickerViewDelegate, UIScr
         ]
         
         //registers teh user and logs in if successful
-        Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/create_account", parameters: parameters, encoding: .JSON)
+        Alamofire.request(.POST, "\(BASE_URL)api/v1.0/create_account", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
                 //print(response.request)  // original URL request
                 print("RESPONSE CODE: \(response.response)") // URL response

@@ -32,7 +32,7 @@ class ProductInfoViewController: UIViewController, UICollectionViewDelegate, UIC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "productToProfile_seg") {
             //var svc = segue!.destinationViewController as secondViewController;
-            let profileVC: ProfileViewController = segue.destinationViewController as! ProfileViewController
+            let profileVC: ProfileController = segue.destinationViewController as! ProfileController
             profileVC.transferUserId((self.productInfo?.ownerid)!)
         }
     }

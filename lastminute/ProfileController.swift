@@ -10,15 +10,16 @@ import Foundation
 import UIKit
 import Alamofire
 
-class ProfileViewController: UIViewController {
+class ProfileController: UIViewController, UITableViewDelegate {
     
     var user: User? = nil
-    var userId: String? = nil
-    var userName: String? = nil
+    var userId: String = ""
+    var userName: String = ""
     
-    @IBOutlet weak var lblUsername: UILabel!
-    @IBOutlet weak var lblCollegeName: UILabel!
-    @IBOutlet weak var lblUniversityName: UILabel!
+    @IBOutlet weak var tv: UITableView!
+    
+    var collegeNmae: String = ""
+    var universityName: String = ""
     
     
     @IBAction func logout(sender: AnyObject) {
@@ -36,14 +37,44 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        switch indexPath.row {
+        case 1:
+            let cell = tableView.dequeueReusableCellWithIdentifier("user_info")! as! UserInfoCell
+            cell.userInfo.text = userName
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCellWithIdentifier("user_info")! as! UserInfoCell
+            cell.userInfo.text = collegeNmae
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCellWithIdentifier("user_info")! as! UserInfoCell
+            cell.userInfo.text = universityName
+            return cell
+        default:
+            print("OH YEEEEAAAAA")
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("spacer")! as UITableViewCell
+        return cell
+    }
+    
     func transferUser(user: User) {
         self.user = user
+        
+        self.userName = user.userName!
+        self.collegeNmae = user.college!
+        self.universityName = user.university!
     }
     
     func transferUserId(userId: String) {
         //self.userId = userId
-
-        Alamofire.request(.GET, "http://52.20.241.139/api/v1.0/users/\(userId)")
+        Alamofire.request(.GET, "\(BASE_URL)api/v1.0/users/\(userId)")
             .responseJSON { response_ in
                 
                 if let JSON = response_.result.value {
@@ -53,12 +84,12 @@ class ProfileViewController: UIViewController {
                         return;
                     }*/
                     
-                    self.lblUsername.text = (JSON["user"]!!["firstname"]!! as! String) + " " + (JSON["user"]!!["lastname"]!! as! String)
-                    self.lblCollegeName.text = (JSON["user"]!!["collegename"]!! as! String)
-                    self.lblUniversityName.text = (JSON["user"]!!["universityname"]!! as! String)
+                    self.userName = (JSON["user"]!!["firstname"]!! as! String) + " " + (JSON["user"]!!["lastname"]!! as! String)
+                    self.collegeNmae = (JSON["user"]!!["collegename"]!! as! String)
+                    self.universityName = (JSON["user"]!!["universityname"]!! as! String)
                 }
+                print("refreshing")
+                self.tv.reloadData()
         }
- 
-        
     }
 }

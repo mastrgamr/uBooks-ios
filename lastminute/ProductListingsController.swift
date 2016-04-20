@@ -50,7 +50,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
             naVC.setIt("EY BITCH!!")
         }
         if (isLoggedIn && segue.identifier == "profile_seg") {
-            let profileVC: ProfileViewController = segue.destinationViewController as! ProfileViewController
+            let profileVC: ProfileController = segue.destinationViewController as! ProfileController
             profileVC.transferUser(aUser!)
         }
         if (segue.identifier == "product_seg") {
@@ -76,7 +76,7 @@ class BookListingController : UIViewController, UICollectionViewDelegate, UIColl
         ]
         
         
-        Alamofire.request(.POST, "http://52.20.241.139/api/v1.0/products_for_sale", parameters: parameters, encoding: .JSON)
+        Alamofire.request(.POST, "\(BASE_URL)api/v1.0/products_for_sale", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
                 //print(response.request)  // original URL request
                 print("RESPONSE CODE: \(response.response)") // URL response
